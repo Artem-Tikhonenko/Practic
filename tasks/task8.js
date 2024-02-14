@@ -31,6 +31,12 @@ function getTimeFromMinutes(minTotal) {
 console.log(getTimeFromMinutes(150));
 
 // Место для второй задачи
-function findMaxNumber() {
-
+function findMaxNumber(a, b, c, d) {
+    if (typeof(a) !== 'number' || typeof(b) !== 'number' || typeof(c) !== 'number' || typeof(d) !== 'number') {
+        return 0;
+    } else {
+        return Math.max(a, b, c, d);
+    }
 }
+
+console.log(findMaxNumber(1, 21.5, 3, 4));
