@@ -18,11 +18,12 @@ const personalPlanPeter = {
             str += `${lang.toUpperCase()} `;
         })
 
-        console.log(str);
+        return str;
     }
 };
 
-personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+// personalPlanPeter.showAgeAndLangs(personalPlanPeter);
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
 function showExperience(plan) {
     const {skills} = plan;
