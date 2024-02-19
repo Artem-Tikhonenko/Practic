@@ -54,14 +54,30 @@ const personalMovieDB = {
     },
     writeYourGenres: function() {
         for( let i = 1; i <= 3; i++) {
-            personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+            if (personalMovieDB.genres === '' || personalMovieDB.genres === null) {
+                console.log('error');
+                i--;
+            } else {
+                personalMovieDB.genres[i - 1] = prompt(`Ваш любимый жанр под номером ${i}`);
+            }
         }
+
+        personalMovieDB.genres.forEach(function(item, i){
+            console.log(`Любимый жанр ${i + 1} - это ${item}`);
+        })
     },
     showMyDB: function() {
         if(personalMovieDB.privat === false) {
             console.log(personalMovieDB);
         } else {
             console.log('error');
+        }
+    },
+    toggleVisibleMyDB: function() {
+        if(personalMovieDB.privat) {
+            personalMovieDB.privat = false;
+        } else {
+            personalMovieDB.privat = true;
         }
     }
 };
