@@ -51,4 +51,32 @@ function getTotal(data) {
     return total / students;
 }
 
-console.log(getTotal(students));
+// console.log(getTotal(students));
+
+function getTotalRecursion(data) {
+    if (Array.isArray(data)) {
+        let total = 0;
+
+        for (let i = 0; i < data.length; i++) {
+            total += data[i].progress;
+        }
+
+        return [total, data.length];
+    } else {
+        let total = [0, 0];
+
+        for( let subData of Object.values(data)) {
+            const subDataArr = getTotalRecursion(subData);
+            total[0] += subDataArr[0];
+            total[1] += subDataArr[1];
+        }
+
+        return total;
+    }
+}
+
+const result = getTotalRecursion(students);
+
+console.log(result[0]/result[1]);
+
+console.log(result);
