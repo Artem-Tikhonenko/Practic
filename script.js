@@ -34,11 +34,11 @@ const personalMovieDB = {
 };
 
 const a = prompt ('Один из последних просмотренных фильмов?'),
-      b = prompt ('Один из последних просмотренных фильмов?'),
       c = prompt ('На сколько оцените его?'),
+      b = prompt ('Один из последних просмотренных фильмов?'),
       d = prompt ('На сколько оцените его?');
 
-personalMovieDB.movies.a = c;
-personalMovieDB.movies.b = d;
+personalMovieDB.movies[a] = c;
+personalMovieDB.movies[b] = d;
 
 console.log(personalMovieDB);
