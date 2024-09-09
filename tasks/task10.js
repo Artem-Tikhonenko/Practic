@@ -8,8 +8,22 @@ const personalPlanPeter = {
             php: '10%'
         },
         exp: '1 month'
+    },
+    showAgeAndLangs: function(plan) {
+        const {age} = plan;
+        const {languages} = plan.skills;
+
+        let str = `Мне ${age} и я владею языками: `;
+
+        languages.forEach(function(lang) {
+            str += `${lang.toUpperCase()} `;
+        });
+
+        return str;
     }
 };
+
+console.log(personalPlanPeter.showAgeAndLangs(personalPlanPeter));
 
 function showExperience(plan) {
     let {exp} = plan.skills;
