@@ -19,3 +19,8 @@ hearts.forEach(item => {
 });
 
 oneHeart.style.backgroundColor = 'green';
+
+const div = document.createElement('div');
+div.classList.add('black');
+document.body.prepend(div);
+div.innerHTML = '<h1>Hello</h1>';
