@@ -1,9 +1,7 @@
-const btn = document.querySelectorAll('button');
-
-btn.forEach(btns => {
-    btns.addEventListener('click', (e) => {
-        console.log(e.target);
-        e.target.style.backgroundColor = 'blue';
-        e.target.innerHTML = '<button >Нажми меня</button>';
-    }, {once: true});
-});
+// console.log(document.body.childNodes);
+for (let node of document.body.childNodes) {
+    if (node.nodeName == "#text" || node.nodeName == "#comment") {
+        continue;
+    }
+    console.log(node);
+}
