@@ -1,25 +1,12 @@
-// function pow(x, n) {
-//     if (n === 1) {
-//         return x;
-//     } else {
-//         return x * pow(x, n - 1);
-//     }
-// }
+document.addEventListener('DOMContentLoaded', () => {
 
-// console.log(pow(2, 3));
-// console.log(pow(2, 4));
-// console.log(pow(2, 5)); // 32
-// console.log(pow(2, 6)); // 64
+    const box = document.querySelector('.box');
 
+    box.addEventListener('touchstart', (e) => {
+        e.preventDefault();
 
-function factorial(n) {
+        console.log('start');
+        e.target.style.background = 'blue';
+    });
 
-    if(n === 1) {
-        return 1;
-    } else {
-        return n * factorial(n - 1);
-    }
-}
-
-const fact = factorial(6);
-console.log(fact);
+});
