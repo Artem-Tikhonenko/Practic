@@ -35,7 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         movieList = document.querySelector('.promo__interactive-list'),
         addForm = document.querySelector('.add'),
         addInput = document.querySelector('.adding__input'),
-        checkbox = document.querySelector('[type="checkbox"]');
+        checkbox = document.querySelector('[type="checkbox"]'),
+        test = document.querySelector('.promo__interactive-item');
 
     addForm.addEventListener('submit', (event) => {
         event.preventDefault();
@@ -47,6 +48,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if(newFilm.length > 21) {
                 newFilm = `${newFilm.substring(0, 22)}...`;
+            }
+
+            if(favorite) {
+                console.log("Добавляем любимый фильм");
             }
 
             movieDB.movies.push(newFilm);
@@ -79,17 +84,26 @@ document.addEventListener('DOMContentLoaded', () => {
         arr.sort();
     };
 
-    sortArr(movieDB.movies);
-
     function createMovieList(films, parent) {
 
         parent.innerHTML = '';
+        sortArr(films);
 
         films.forEach((film, i) => {
             parent.innerHTML += `
                 <li class="promo__interactive-item">${i + 1} ${film}
                     <div class="delete"></div>
                 </li>`;
+        });
+
+        document.querySelectorAll('.delete').forEach((btn, i) => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.remove();
+                movieDB.movies.splice(i, 1);
+
+                createMovieList(movieDB.movies, movieList);
+
+            });
         });
     }
 
