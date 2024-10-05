@@ -1,21 +1,23 @@
-const btns = document.querySelectorAll('button'),
-      wrapper = document.querySelector('.btn-block'),
-      body = document.querySelector('body');
+const btn = document.querySelector('.btn');
+const elem = document.querySelector('.box');
+let pos = 0;
 
-btns[0].addEventListener('click', (e) => {
-    if (!btns[1].classList.contains('red')) {
-        btns[1].classList.add('red');
-    } else {
-        btns[1].classList.remove('red');
+function myAnimation() {
+    pos = 0;
+
+    const id = setInterval(frame, 100);
+
+    function frame() {
+        if(pos == 300) {
+            clearInterval(id);
+        } else {
+            pos++;
+            elem.style.top = pos + 'px';
+            elem.style.left = pos + 'px';
+        }
     }
-});
+}
 
-wrapper.addEventListener('click', (event) => {
-    if (event.target && event.target.classList == 'red') {
-        console.log('hello');
-    }
-});
 
-const btn = document.createElement('button');
-btn.classList.add('red');
-wrapper.append(btn);
+
+btn.addEventListener('click', myAnimation);
