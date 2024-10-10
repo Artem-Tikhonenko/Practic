@@ -1,23 +1,25 @@
-const btn = document.querySelector('.btn');
-const elem = document.querySelector('.box');
-let pos = 0;
+'use strict';
 
-function myAnimation() {
-    pos = 0;
+function User(name, id) {   // функция конструктор
+    this.name = name;
+    this.id = id;
+    this.human = true;
+    this.hello = function() {
+        console.log(`Hello ${this.name}`);
+    };
+};
 
-    const id = setInterval(frame, 100);
+User.prototype.exit = function() {  
+    console.log(`Пользователь ${this.name} ушел`);
+};
 
-    function frame() {
-        if(pos == 300) {
-            clearInterval(id);
-        } else {
-            pos++;
-            elem.style.top = pos + 'px';
-            elem.style.left = pos + 'px';
-        }
-    }
-}
+const dominik = new User ('Dominik', 7);
+const christopher = new User ('Christopher', 5);
 
+dominik.exit();  // Пользователь Dominik ушел
 
+christopher.hello(); // Hello Christopher
 
-btn.addEventListener('click', myAnimation);
+console.log(dominik);  // User {name: 'Dominik', id: 7, human: true, hello: ƒ} 
+console.log(christopher);  //User {name: 'Christopher', id: 5, human: true, hello: ƒ}
+
