@@ -1,25 +1,21 @@
 'use strict';
 
-function User(name, id) {   // функция конструктор
-    this.name = name;
-    this.id = id;
-    this.human = true;
-    this.hello = function() {
-        console.log(`Hello ${this.name}`);
-    };
+const btn = document.querySelector('button');
+
+btn.addEventListener('click', function() {   //в таком виде, this (контекст вызова) будет сам элемент на котором произошло событие
+                                             //с трелочной функции контекст потеряется
+    console.log(this);  // <button class="btn">Animation</button>
+});
+
+
+const obj = {
+    sum: 5,
+    sayNumber: function() {      //у метода - контекст ссылается на объект
+        const say = () => {      //у стрелочной ф-ции нет контекста вызова, она берет его у родителя 
+            console.log(this); // {sum: 5, sayNumber: ƒ}
+        }
+        say();
+    }
 };
 
-User.prototype.exit = function() {  
-    console.log(`Пользователь ${this.name} ушел`);
-};
-
-const dominik = new User ('Dominik', 7);
-const christopher = new User ('Christopher', 5);
-
-dominik.exit();  // Пользователь Dominik ушел
-
-christopher.hello(); // Hello Christopher
-
-console.log(dominik);  // User {name: 'Dominik', id: 7, human: true, hello: ƒ} 
-console.log(christopher);  //User {name: 'Christopher', id: 5, human: true, hello: ƒ}
-
+obj.sayNumber();
