@@ -1,16 +1,22 @@
 'use strict';
 
-const test = time => {
-    return new Promise (resolve => {
-        setTimeout(() => {resolve()}, time);
-    });
-};
+const names = ['Ann', 'Ivan', 'Alexander', 'HarryPotter'];
+const shortName = names.filter(name => {
+    return name.length < 5;
+});
+console.log(shortName);
+
+// const test = time => {
+//     return new Promise (resolve => {
+//         setTimeout(() => {resolve()}, time);
+//     });
+// };
 
 // test(1000).then(() => {console.log('1000 ms')});
 // test(2000).then(() => {console.log('2000 ms')});
 
-Promise.all([test(1000), test(2000)]).then(() => console.log('ALL'));
-Promise.race([test(1000), test(2000)]).then(() => console.log('ALL1'));
+// Promise.all([test(1000), test(2000)]).then(() => console.log('ALL'));
+// Promise.race([test(1000), test(2000)]).then(() => console.log('ALL1'));
 
 
 
