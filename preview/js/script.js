@@ -2,7 +2,7 @@
 
 const names = ['Ann', 'Ivan', 'Alexander', 'HarryPotter'];
 const shortName = names.filter(name => {
-    return name.length < 5;
+    return name.length < 0;
 });
 console.log(shortName);
 
