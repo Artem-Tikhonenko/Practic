@@ -1,10 +1,24 @@
 'use strict';
 
-const names = ['Ann', 'Ivan', 'Alexander', 'HarryPotter'];
-const shortName = names.filter(name => {
-    return name.length < 0;
-});
-console.log(shortName);
+const person = {
+    name: 'Alex',
+    age: 25,
+    get userAge() {
+        return this.age;
+    },
+    set userAge(num) {
+        this.age = num;
+    }
+}
+person.userAge = 55;
+console.log(person.userAge);
+
+
+// const names = ['Ann', 'Ivan', 'Alexander', 'HarryPotter'];
+// const shortName = names.filter(name => {
+//     return name.length < 0;
+// });
+// console.log(shortName);
 
 // const test = time => {
 //     return new Promise (resolve => {
